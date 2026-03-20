@@ -81,38 +81,6 @@ for epoch in range(epochs):
     train_losses.append(epoch_loss)
     print(f'Epoch {epoch+1}/{epochs}, Loss: {epoch_loss:.6f}')
 
-print('Name: DAKSHA C')
-print('Register Number: 212224230048')
-plt.plot(train_losses)
-plt.xlabel('Epoch')
-plt.ylabel('MSE Loss')
-plt.title('Training Loss')
-plt.show()
-
-model.eval()
-
-with torch.no_grad():
-    predicted = model(x_test_tensor.to(device)).cpu().numpy()
-    actual = y_test_tensor.cpu().numpy()
-predicted_prices = scaler.inverse_transform(predicted)
-actual_prices = scaler.inverse_transform(actual)
-
-# Write your code here
-print('Name: DAKSHA C')
-print('Register Number: 212224230048')
-plt.figure(figsize=(10,6))
-
-plt.plot(actual_prices, label='Actual Price')
-plt.plot(predicted_prices, label='Predicted Price')
-
-plt.xlabel('Time')
-plt.ylabel('Stock Price')
-plt.title('Stock Price Prediction using RNN')
-plt.legend()
-plt.show()
-
-print("Predicted Price:", predicted_prices[-1][0])
-print("Actual Price:", actual_prices[-1][0])
 ```
 
 ## Output
